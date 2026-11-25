@@ -68,9 +68,9 @@ const PROJECTS = [
   { name: "ML with scikit-learn", lang: "Python", icon: "chart", desc: "KNN, decision tree, linear & logistic regression on Iris and an e-learning dataset, auto-generated PDF report.", tags: ["AI", "ML"], url: "https://github.com/TomGlv/ml-scikit-learn-basics" },
   { name: "CineDeck", lang: "Web", icon: "web", desc: "Full-stack movie trading-card game on the TMDB API: auth, auction market with bid escrow, trades, cron jobs. Next.js, Prisma, Postgres.", tags: ["Full-stack"], url: "https://github.com/TomGlv/cinedeck" },
   { name: "archidia-web", lang: "Web", icon: "web", desc: "Client website for the ArchidiA architecture studio: Astro, Sanity CMS, Netlify forms. Lighthouse 99/100.", tags: ["Client", "Front-end"], url: "https://github.com/TomGlv/archidia-web" },
-  { name: "Tesseract OCR test", lang: "C++", icon: "ocr", desc: "Win32 screen capture → OpenCV EAST text detection → OCR → LLM over REST. Prototype of the Voltaire tool.", tags: ["AI", "OCR"], url: "https://github.com/TomGlv/tesseract-ocr-test" },
   { name: "Numerical simulation", lang: "Python", icon: "chart", desc: "RC circuit solved by Euler, RK4 and analytically in a CustomTkinter GUI; damped pendulum model.", tags: ["Maths"], url: "https://github.com/TomGlv/numerical-simulation" },
   { name: "LoL Match Notifier", lang: "Python", icon: "radar", desc: "GitHub Actions cron + Riot API: every new game posted to Discord with KDA, kill participation, LP and distance to Master.", tags: ["Bot", "API"], url: "https://github.com/TomGlv/lol-match-notifier" },
+  { name: "Tesseract OCR test", lang: "C++", icon: "ocr", desc: "Win32 screen capture → OpenCV EAST text detection → OCR → LLM over REST. Prototype of the Voltaire tool.", tags: ["AI", "OCR"], url: "https://github.com/TomGlv/tesseract-ocr-test" },
   { name: "WorldCupStats", lang: "C#", icon: "ball", desc: "Statistics application crunching World Cup data — teams, matches and numbers, in .NET.", tags: ["Data", ".NET"], url: "https://github.com/TomGlv/WorldCupStats" },
   { name: "Advanced SQL", lang: "Python", icon: "tasks", desc: "MySQL 8 labs: joins, GROUP BY / HAVING, CTEs, views, with Python scripts that run them and build the report.", tags: ["Data", "SQL"], url: "https://github.com/TomGlv/mysql-advanced-sql" },
   { name: "SoWeSign", lang: "Java", icon: "sign", desc: "Team electronic-attendance app in JavaFX + MySQL, with admin, teacher and student sides.", tags: ["OOP"], url: "https://github.com/TomGlv/SoWeSign" },
@@ -130,6 +130,8 @@ const LAYOUT = [
 /* ============================================================
    RENDER
 ============================================================ */
+const FEATURED = 8;
+let workOpen = false;
 const scatter = $("#scatter");
 PROJECTS.forEach((p, i) => {
   const a = document.createElement("a");
@@ -147,8 +149,12 @@ PROJECTS.forEach((p, i) => {
       </div>
       <div class="exhibit__body"><h3 class="exhibit__name">${p.name}</h3><p class="exhibit__desc">${p.desc}</p></div>
     </div>`;
+  if (i >= FEATURED) a.classList.add("is-more");
   scatter.appendChild(a);
 });
+const moreBtn = document.createElement("button");
+moreBtn.className = "more-work mono"; moreBtn.dataset.cursor = "hover";
+scatter.after(moreBtn);
 const rowsEl = $("#rows");
 const LANG_OF = { "AI / ML": "AI", "Python": "Python", "HTML · CSS · JS": "Web", "Java": "Java", "C#": "C#", "C++": "C++", "C": "C" };
 const inCat = (p, f) => p.lang === f || p.tags.includes(f);
@@ -927,13 +933,28 @@ function scenes(lenis) {
     e.addEventListener("pointermove", (ev) => { const r = e.getBoundingClientRect(); ry(((ev.clientX - r.left) / r.width - 0.5) * 14); rx(-((ev.clientY - r.top) / r.height - 0.5) * 12); });
     e.addEventListener("pointerleave", () => { rx(0); ry(0); });
   });
+  /* featured 8 + "more" toggle; a filter always shows every match */
+  function applyWork(f) {
+    $$(".exhibit").forEach((e) => (e.style.display = (f === "all" ? workOpen || !e.classList.contains("is-more") : e.dataset.lang === f || e.dataset.tags.split(",").includes(f)) ? "" : "none"));
+    const extra = PROJECTS.length - FEATURED;
+    moreBtn.style.display = f === "all" ? "" : "none";
+    moreBtn.innerHTML = workOpen ? "↑ show less" : `+ ${extra} more repos <span>git log --all</span>`;
+  }
+  applyWork("all");
+  moreBtn.addEventListener("click", () => {
+    workOpen = !workOpen; applyWork("all");
+    const shown = $$(".exhibit.is-more");
+    if (workOpen) gsap.fromTo(shown, { opacity: 0, y: 40, scale: 0.94 }, { opacity: 1, y: 0, scale: 1, duration: 0.7, stagger: 0.04, ease: "expo.out" });
+    else $("#work").scrollIntoView({ behavior: "smooth" });
+    ScrollTrigger.refresh();
+  });
   /* language filters */
   $("#filters").addEventListener("click", (ev) => {
     const btn = ev.target.closest(".filter"); if (!btn || btn.classList.contains("is-on")) return;
     $$(".filter").forEach((b) => b.classList.toggle("is-on", b === btn));
     const f = btn.dataset.f, all = $$(".exhibit");
     gsap.to(all, { opacity: 0, y: 20, scale: 0.94, duration: 0.25, stagger: 0.015, ease: "power2.in", onComplete: () => {
-      all.forEach((e) => (e.style.display = f === "all" || e.dataset.lang === f || e.dataset.tags.split(",").includes(f) ? "" : "none"));
+      applyWork(f);
       const shown = all.filter((e) => e.style.display !== "none");
       gsap.fromTo(shown, { opacity: 0, y: 40, scale: 0.94 }, { opacity: 1, y: 0, scale: 1, duration: 0.7, stagger: 0.06, ease: "expo.out" });
       ScrollTrigger.refresh();

@@ -100,7 +100,7 @@
     try {
       const list = await api(`/users/${USER}/repos?per_page=100`);
       list.forEach((r) => (DATA.repos[r.name] = { lang: r.language || "—", created: r.created_at, pushed: r.pushed_at, size: r.size, stars: r.stargazers_count, branch: r.default_branch, desc: r.description }));
-      const names = PROJECTS.map(repoOf).filter(Boolean);
+      const names = PROJECTS.slice(0, 8).map(repoOf).filter(Boolean); /* featured only: stays under the 60 req/h API limit */
       await Promise.all(names.map(async (n) => {
         try {
           const c = await api(`/repos/${USER}/${n}/commits?per_page=100`);
