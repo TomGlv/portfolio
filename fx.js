@@ -105,7 +105,7 @@ function rectOf(el) { if (el._rf !== FRAME.n) { el._r = el.getBoundingClientRect
      The ORBIT switch on the power strip cuts the power: the badges fall and bounce on the floor. */
   const STACK = [
     { t: "py", name: "Python", f: "Python" }, { t: "c++", name: "C++", f: "C++" }, { t: "c#", name: "C# / .NET", f: "C#" }, { t: "java", name: "Java", f: "Java" },
-    { t: "ts", name: "TypeScript / web", f: "Web" }, { t: "git", name: "git · every repo", f: "all" }, { t: ">_", name: "shell & bots", f: "all" }, { t: "sql", name: "SQL", f: "all" },
+    { t: "ts", name: "TypeScript / web", f: "Web" }, { t: "git", name: "git · every repo", f: "all" }, { t: ">_", name: "shell & bots", f: "all" }, { t: "sql", name: "SQL", f: "all" }, { t: "ai", name: "AI · LLM · OCR", f: "AI" },
   ];
   function orbitMode() {
     let tick, ang = 0, spd = 0.55, kick = { x: 0, v: 0 }, hover = 0, tilt = 0, held = null, dotT = 0, boost = 1, boostT = 0;

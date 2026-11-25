@@ -13,19 +13,29 @@
 
   /* snapshot (used until the live API answers, or if it doesn't) */
   const SNAP = {
-    "AMD-LA-PEUFRA-TRACKER": { lang: "Python", created: "2026-04-19", pushed: "2026-07-01", size: 9 },
-    "AMD-LAGRINTA-TRACKER": { lang: "Python", created: "2026-04-16", pushed: "2026-05-09", size: 26 },
-    "archidia-web": { lang: "Astro", created: "2026-04-30", pushed: "2026-11-04", size: 71243 },
-    "bot_projet_voltaire": { lang: "C++", created: "2025-01-15", pushed: "2026-11-04", size: 289 },
-    "DPM-plus-V2": { lang: "Python", created: "2026-04-10", pushed: "2026-11-22", size: 98 },
-    "GestionOrdi": { lang: "Java", created: "2025-11-16", pushed: "2025-11-16", size: 6 },
-    "minecraft-house-ai": { lang: "Python", created: "2026-06-24", pushed: "2026-06-24", size: 10337 },
     "SoWeSign": { lang: "Java", created: "2025-12-03", pushed: "2025-12-10", size: 5406 },
     "TaskFlow": { lang: "HTML", created: "2026-06-28", pushed: "2026-07-03", size: 111 },
-    "WorldCupStats": { lang: "C#", created: "2026-06-10", pushed: "2026-06-15", size: 70 },
+    "WorldCupStats": { lang: "C#", created: "2026-06-10", pushed: "2026-11-25", size: 70 },
+    "ai-lore-video-generator": { lang: "Python", created: "2026-11-25", pushed: "2026-11-25", size: 0 },
+    "ai-pdf-sorter": { lang: "Python", created: "2026-11-25", pushed: "2026-11-25", size: 0 },
+    "archidia-web": { lang: "Astro", created: "2026-04-30", pushed: "2026-11-04", size: 71243 },
+    "c-data-structures": { lang: "C", created: "2026-11-25", pushed: "2026-11-25", size: 0 },
+    "cinedeck": { lang: "TypeScript", created: "2026-10-23", pushed: "2026-11-25", size: 399 },
+    "computer-inventory-java": { lang: "Java", created: "2025-11-16", pushed: "2026-11-25", size: 6 },
+    "deezer-discord-rpc": { lang: "Python", created: "2026-11-25", pushed: "2026-11-25", size: 0 },
+    "ece-cooked": { lang: "C", created: "2026-11-25", pushed: "2026-11-25", size: 0 },
+    "lol-match-notifier": { lang: "Python", created: "2026-04-09", pushed: "2026-11-25", size: 46 },
+    "minecraft-house-ai": { lang: "Python", created: "2026-06-24", pushed: "2026-11-25", size: 10337 },
+    "ml-scikit-learn-basics": { lang: "Python", created: "2026-11-25", pushed: "2026-11-25", size: 0 },
+    "mysql-advanced-sql": { lang: "Python", created: "2026-11-25", pushed: "2026-11-25", size: 0 },
+    "numerical-simulation": { lang: "Python", created: "2026-11-25", pushed: "2026-11-25", size: 0 },
+    "quoridor": { lang: "C", created: "2026-11-25", pushed: "2026-11-25", size: 0 },
+    "tesseract-ocr-test": { lang: "C++", created: "2026-11-25", pushed: "2026-11-25", size: 0 },
+    "tournament-manager": { lang: "Python", created: "2026-11-25", pushed: "2026-11-25", size: 0 },
+    "voltaire-ocr-llm": { lang: "C++", created: "2025-01-15", pushed: "2026-11-04", size: 289 },
   };
 
-  const BRANCH = { "AMD-LA-PEUFRA-TRACKER": "main", "AMD-LAGRINTA-TRACKER": "main", "archidia-web": "main", "bot_projet_voltaire": "master", "DPM-plus-V2": "master", "GestionOrdi": "master", "minecraft-house-ai": "master", "SoWeSign": "master", "TaskFlow": "master", "WorldCupStats": "Masterclass" };
+  const BRANCH = { "SoWeSign": "master", "TaskFlow": "master", "WorldCupStats": "Masterclass", "ai-lore-video-generator": "main", "ai-pdf-sorter": "main", "archidia-web": "main", "c-data-structures": "main", "cinedeck": "main", "computer-inventory-java": "master", "deezer-discord-rpc": "main", "ece-cooked": "main", "lol-match-notifier": "master", "minecraft-house-ai": "master", "ml-scikit-learn-basics": "main", "mysql-advanced-sql": "main", "numerical-simulation": "main", "quoridor": "main", "tesseract-ocr-test": "main", "tournament-manager": "main", "voltaire-ocr-llm": "master" };
 
   /* ============================================================
      TYPEWRITER — uneven ink, carriage returns, syntax colours

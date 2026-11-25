@@ -61,18 +61,26 @@ const ICONS = {
 };
 
 const PROJECTS = [
-  { name: "DPM-Plus V2", lang: "Python", icon: "chart", desc: "League of Legends performance tracker — monitors player stats and match data.", tags: ["LoL", "Tracker", "Featured"], url: "https://github.com/TomGlv/DPM-plus-V2" },
-  { name: "bot_projet_voltaire", lang: "C++", icon: "ocr", desc: "OCR + LLM assistant: screen capture, Tesseract extraction, Groq / Gemini interpretation.", tags: ["OCR", "LLM"], url: "https://github.com/TomGlv/bot_projet_voltaire" },
-  { name: "minecraft-house-ai", lang: "Python", icon: "house", desc: "An AI that designs and builds houses in Minecraft — procedural generation meets ML.", tags: ["AI", "Procedural"], url: "https://github.com/TomGlv/minecraft-house-ai" },
+  { name: "BuildScan", lang: "Python", icon: "house", desc: "Classifies Minecraft schematics as house / not house: RandomForest (88.6%) vs PyTorch 3D CNN on 32³ voxels (94.4%), FastAPI + Three.js viewer.", tags: ["AI", "Deep learning", "Featured"], url: "https://github.com/TomGlv/minecraft-house-ai" },
+  { name: "AI PDF Sorter", lang: "Python", icon: "ocr", desc: "Reads handwritten scanned PDFs with an LLM vision model, extracts fields as validated JSON, human-review queue, cache, CSV audit.", tags: ["AI", "LLM", "Document AI"], url: "https://github.com/TomGlv/ai-pdf-sorter" },
+  { name: "Voltaire OCR + LLM", lang: "C++", icon: "ocr", desc: "Screen capture → Tesseract OCR (Leptonica preprocessing) → Groq and Gemini queried in parallel to spot and explain French grammar mistakes.", tags: ["AI", "OCR", "LLM"], url: "https://github.com/TomGlv/voltaire-ocr-llm" },
+  { name: "AI Lore Video Generator", lang: "Python", icon: "bot", desc: "End-to-end generative pipeline: Llama 3.3 script (Groq), AI images, AI voice-over, video assembled with OpenCV.", tags: ["AI", "GenAI"], url: "https://github.com/TomGlv/ai-lore-video-generator" },
+  { name: "ML with scikit-learn", lang: "Python", icon: "chart", desc: "KNN, decision tree, linear & logistic regression on Iris and an e-learning dataset, auto-generated PDF report.", tags: ["AI", "ML"], url: "https://github.com/TomGlv/ml-scikit-learn-basics" },
+  { name: "CineDeck", lang: "Web", icon: "web", desc: "Full-stack movie trading-card game on the TMDB API: auth, auction market with bid escrow, trades, cron jobs. Next.js, Prisma, Postgres.", tags: ["Full-stack"], url: "https://github.com/TomGlv/cinedeck" },
+  { name: "archidia-web", lang: "Web", icon: "web", desc: "Client website for the ArchidiA architecture studio: Astro, Sanity CMS, Netlify forms. Lighthouse 99/100.", tags: ["Client", "Front-end"], url: "https://github.com/TomGlv/archidia-web" },
+  { name: "Tesseract OCR test", lang: "C++", icon: "ocr", desc: "Win32 screen capture → OpenCV EAST text detection → OCR → LLM over REST. Prototype of the Voltaire tool.", tags: ["AI", "OCR"], url: "https://github.com/TomGlv/tesseract-ocr-test" },
+  { name: "Numerical simulation", lang: "Python", icon: "chart", desc: "RC circuit solved by Euler, RK4 and analytically in a CustomTkinter GUI; damped pendulum model.", tags: ["Maths"], url: "https://github.com/TomGlv/numerical-simulation" },
+  { name: "LoL Match Notifier", lang: "Python", icon: "radar", desc: "GitHub Actions cron + Riot API: every new game posted to Discord with KDA, kill participation, LP and distance to Master.", tags: ["Bot", "API"], url: "https://github.com/TomGlv/lol-match-notifier" },
   { name: "WorldCupStats", lang: "C#", icon: "ball", desc: "Statistics application crunching World Cup data — teams, matches and numbers, in .NET.", tags: ["Data", ".NET"], url: "https://github.com/TomGlv/WorldCupStats" },
-  { name: "archidia-web", lang: "Web", icon: "web", desc: "Website for the ArchidiA architecture studio — layout, presentation, performance.", tags: ["Front-end"], url: "https://github.com/TomGlv/archidia-web" },
-  { name: "SoWeSign", lang: "Java", icon: "sign", desc: "Java application built around the SoWeSign attendance ecosystem. Clean OOP architecture.", tags: ["OOP"], url: "https://github.com/TomGlv/SoWeSign" },
+  { name: "Advanced SQL", lang: "Python", icon: "tasks", desc: "MySQL 8 labs: joins, GROUP BY / HAVING, CTEs, views, with Python scripts that run them and build the report.", tags: ["Data", "SQL"], url: "https://github.com/TomGlv/mysql-advanced-sql" },
+  { name: "SoWeSign", lang: "Java", icon: "sign", desc: "Team electronic-attendance app in JavaFX + MySQL, with admin, teacher and student sides.", tags: ["OOP"], url: "https://github.com/TomGlv/SoWeSign" },
   { name: "TaskFlow", lang: "Web", icon: "tasks", desc: "A clean web-based task manager. Organise, track and flow through your to-dos.", tags: ["UI"], url: "https://github.com/TomGlv/TaskFlow" },
-  { name: "AMD LaGrinta Tracker", lang: "Python", icon: "radar", desc: "LoL tracker bot — watches ranks, stats and match activity automatically.", tags: ["Bot", "LoL"], url: "https://github.com/TomGlv/AMD-LAGRINTA-TRACKER" },
-  { name: "GestionOrdi", lang: "Java", icon: "pc", desc: "Computer / inventory management system — resources, records and business logic.", tags: ["Desktop"], url: "https://github.com/TomGlv/GestionOrdi" },
-  { name: "AMD La Peufra Tracker", lang: "Python", icon: "target", desc: "LoL tracker bot — continuous stat tracking and match monitoring.", tags: ["Bot", "LoL"], url: "https://github.com/TomGlv/AMD-LA-PEUFRA-TRACKER" },
-  { name: "PhishCGI", lang: "C++", icon: "hook", desc: "Security-research project exploring phishing detection and CGI internals.", tags: ["Security"], url: "https://github.com/TomGlv", priv: true },
-  { name: "PhishCGI Discord Bot", lang: "Python", icon: "bot", desc: "Companion Discord bot for PhishCGI — alerts and control over chat.", tags: ["Discord"], url: "https://github.com/TomGlv", priv: true },
+  { name: "Quoridor", lang: "C", icon: "target", desc: "Quoridor board game in C: solo console version and the ING1 team project with an AI opponent.", tags: ["Game"], url: "https://github.com/TomGlv/quoridor" },
+  { name: "ECE Cooked", lang: "C", icon: "pc", desc: "Two-player co-op cooking game with Allegro 4: menu, music, collision map, timer.", tags: ["Game"], url: "https://github.com/TomGlv/ece-cooked" },
+  { name: "Computer inventory", lang: "Java", icon: "pc", desc: "Java app to manage an organisation's computer fleet: add, edit, delete and track machines.", tags: ["Desktop"], url: "https://github.com/TomGlv/computer-inventory-java" },
+  { name: "Tournament manager", lang: "Python", icon: "ball", desc: "Standings, insertion sort, linear vs binary search with comparison counts, round-robin fixtures.", tags: ["Algorithms"], url: "https://github.com/TomGlv/tournament-manager" },
+  { name: "C data structures", lang: "C", icon: "chart", desc: "Queue, stack and max-heap implemented in C on real exercises (ticket office, containers, ski stations).", tags: ["Algorithms"], url: "https://github.com/TomGlv/c-data-structures" },
+  { name: "Deezer Discord RPC", lang: "Python", icon: "radar", desc: "Shows the Deezer track you're playing as Discord Rich Presence, through Last.fm now-playing.", tags: ["Tool"], url: "https://github.com/TomGlv/deezer-discord-rpc" },
 ];
 /* evidence photographs (Unsplash, free licence) */
 const PHOTO = {
@@ -89,17 +97,19 @@ const PHOTO = {
   "PhishCGI": "photo-1714880003292-17685b9999b6",
   "PhishCGI Discord Bot": "photo-1527430253228-e93688616381",
 };
-const LANG_C = { Python: "#ffd43b", "C#": "#a179ff", Java: "#ff8a3d", "C++": "#ff4d6d", Web: "#4cc9f0" };
+const LANG_C = { Python: "#ffd43b", "C#": "#a179ff", Java: "#ff8a3d", "C++": "#ff4d6d", C: "#9aa4b2", Web: "#4cc9f0" };
 const SKILLS = [
+  { n: "AI / ML", r: "LLMs · OCR · PyTorch · scikit-learn", l: 90 },
   { n: "Python", r: "AI · automation · bots", l: 92 },
   { n: "Git & GitHub", r: "versioning", l: 88 },
   { n: "HTML · CSS · JS", r: "web · UI", l: 84 },
   { n: "Java", r: "OOP · apps", l: 82 },
   { n: "C#", r: ".NET · data", l: 76 },
   { n: "C++", r: "performance · OCR", l: 70 },
+  { n: "C", r: "algorithms · games", l: 70 },
 ];
 window.PORTFOLIO = { get PROJECTS() { return PROJECTS; }, get ICONS() { return ICONS; }, get LANG_C() { return LANG_C; } };
-const ROLES = ["Python · AI & automation", "C++ · OCR + LLM tooling", "Java & C# · applications", "Web · front-end builds", "14 repos · 5 languages"];
+const ROLES = ["AI · LLM & OCR pipelines", "Python · ML & automation", "C++ · OCR + LLM tooling", "Web · full-stack builds", "40+ repos · 6 languages"];
 
 /* scattered layout (Lando gallery): col, span, aspect, top offset vh, parallax speed */
 const LAYOUT = [
@@ -124,7 +134,7 @@ const scatter = $("#scatter");
 PROJECTS.forEach((p, i) => {
   const a = document.createElement("a");
   a.className = "exhibit"; a.href = p.url; a.target = "_blank"; a.rel = "noopener";
-  a.dataset.lang = p.lang; a.dataset.cursor = "label"; a.dataset.cursorLabel = "open file";
+  a.dataset.lang = p.lang; a.dataset.tags = p.tags.join(","); a.dataset.cursor = "label"; a.dataset.cursorLabel = "open file";
   a.innerHTML = `
     <div class="exhibit__label">${p.lang}, ${String(i + 1).padStart(2, "0")} <i></i></div>
     <div class="exhibit__card">
@@ -140,11 +150,12 @@ PROJECTS.forEach((p, i) => {
   scatter.appendChild(a);
 });
 const rowsEl = $("#rows");
-const LANG_OF = { "Python": "Python", "HTML · CSS · JS": "Web", "Java": "Java", "C#": "C#", "C++": "C++" };
+const LANG_OF = { "AI / ML": "AI", "Python": "Python", "HTML · CSS · JS": "Web", "Java": "Java", "C#": "C#", "C++": "C++", "C": "C" };
+const inCat = (p, f) => p.lang === f || p.tags.includes(f);
 SKILLS.forEach((s, i) => {
   const li = document.createElement("li");
   li.className = "row";
-  const n = LANG_OF[s.n] ? PROJECTS.filter((p) => p.lang === LANG_OF[s.n]).length : PROJECTS.length;
+  const n = LANG_OF[s.n] ? PROJECTS.filter((p) => inCat(p, LANG_OF[s.n])).length : PROJECTS.length;
   li.innerHTML = `<span class="row__i">${String(i + 1).padStart(2, "0")}</span><span class="row__n">${s.n}</span><span class="row__r">${s.r}</span><span class="row__c">${LANG_OF[s.n] ? `${String(n).padStart(2, "0")} project${n > 1 ? "s" : ""}` : "every repo"}</span>`;
   rowsEl.appendChild(li);
 });
@@ -922,7 +933,7 @@ function scenes(lenis) {
     $$(".filter").forEach((b) => b.classList.toggle("is-on", b === btn));
     const f = btn.dataset.f, all = $$(".exhibit");
     gsap.to(all, { opacity: 0, y: 20, scale: 0.94, duration: 0.25, stagger: 0.015, ease: "power2.in", onComplete: () => {
-      all.forEach((e) => (e.style.display = f === "all" || e.dataset.lang === f ? "" : "none"));
+      all.forEach((e) => (e.style.display = f === "all" || e.dataset.lang === f || e.dataset.tags.split(",").includes(f) ? "" : "none"));
       const shown = all.filter((e) => e.style.display !== "none");
       gsap.fromTo(shown, { opacity: 0, y: 40, scale: 0.94 }, { opacity: 1, y: 0, scale: 1, duration: 0.7, stagger: 0.06, ease: "expo.out" });
       ScrollTrigger.refresh();
